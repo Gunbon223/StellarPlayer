@@ -7,6 +7,8 @@ import android.os.Bundle;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import Model.Songs;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,8 +17,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        DatabaseReference songsRef = database.getReference("Songs");
 
-        myRef.setValue("Hello, World!");
+    // Tạo một đối tượng bài hát
+        Songs song = new Songs("Beautiful Things", "path/to/song", "Benson Bone", "Album");
+
+    // Lưu thông tin của bài hát vào Firebase Realtime Database
+        songsRef.push().setValue(song);
     }
 }
