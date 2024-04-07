@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ListActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="Library"
+            android:textColor="#FA233A"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:icon="@drawable/back"
+            app:iconSize="11dp"
+            app:iconTint="#FA233A"
+            app:iconpadding="2dp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:fontFamily="@font/noto_sans"
+        android:paddingLeft="20dp"
+
+        android:paddingRight="20dp"
+        android:text="Playlists"
+        android:textSize="34sp" />
+
+
+</LinearLayout>
