@@ -1,17 +1,16 @@
-package Model;
+package com.example.stellarplayer.Model;
 
 import java.util.List;
 
-public class Albums {
+public class Playlists {
     private String name;
     private List<Songs> songs;
-    public Albums(){
+    public Playlists(){
         // Empty constructor required for Firebase
     }
 
-    public Albums(String name, List<Songs> songs) {
+    public Playlists(String name, List<Songs> songs) {
         this.name = name;
         this.songs = songs;
     }
-
 }

@@ -1,4 +1,4 @@
-package Model;
+package com.example.stellarplayer.Model;
 
 public class Songs {
     private String name;
