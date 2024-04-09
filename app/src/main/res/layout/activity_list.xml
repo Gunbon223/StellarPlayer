@@ -28,6 +28,19 @@
             app:iconTint="#FA233A"
              />
 
+        <Button
+            android:id="@+id/btnMenu"
+            android:layout_width="61dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            android:text=""
+            android:textColor="#FA233A"
+            app:icon="@android:drawable/ic_menu_sort_by_size"
+            app:iconSize="21sp"
+            app:iconTint="#FA233A" />
+
     </FrameLayout>
 
     <TextView
