@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">StellarPlayer</string>
+    <string name="app_name">My Application</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="action_settings">Settings</string>
+    <!-- Your custom strings here -->
+    <string name="title_library">
+Library
+</string>
+    <string name="hello_blank_fragment">
+        Welcome to the blank fragment
+    </string>
+
 </resources>
