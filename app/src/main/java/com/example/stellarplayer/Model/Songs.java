@@ -1,5 +1,9 @@
 package com.example.stellarplayer.Model;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.MediaMetadataRetriever;
+
 public class Songs {
     private String name;
     private String path;
@@ -31,6 +35,33 @@ public class Songs {
 
     public String getAlbum() {
         return album;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
+
+    public Bitmap getAlbumCover(String filePath) {
+        MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+        mmr.setDataSource(filePath);
+        byte[] data = mmr.getEmbeddedPicture();
+        if (data != null) {
+            return BitmapFactory.decodeByteArray(data, 0, data.length);
+        } else {
+            return null;
+        }
     }
 }
 
