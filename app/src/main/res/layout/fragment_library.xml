@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/label"
+    >
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".LibaryActivity">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:background="@drawable/btnborder"
+            android:fontFamily="@font/new_york_bold"
+            android:paddingLeft="20dp"
+            android:textAppearance="@style/title"
+            android:text="@string/title_library"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="32sp"
+            android:typeface="normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal"
+            android:background="@drawable/btnborder">
+
+            <Button
+                android:id="@+id/btnAlbums"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:paddingLeft="1dp"
+                android:text="Albums"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:icon="@drawable/library_symbols"
+                app:iconPadding="8dp"
+                app:iconSize="30dp"
+                app:iconTint="#FA233A" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="24dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                app:srcCompat="@drawable/next" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/btnborder"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPlayLists"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingLeft="8dp"
+                android:text="Your Playlists"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:icon="@drawable/playlist"
+                app:iconPadding="8dp"
+                app:iconSize="23dp"
+                app:iconTint="#FA233A" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="24dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/next" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/btnborder"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnFav"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingLeft="8dp"
+                android:text="Favorites"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:icon="@drawable/fav"
+                app:iconPadding="8dp"
+                app:iconSize="23dp"
+                app:iconTint="#FA233A" />
+            <ImageView
+
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="24dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/next" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/btnborder"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAllSongs"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingLeft="8dp"
+                android:text="All songs"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:icon="@drawable/works"
+                app:iconPadding="8dp"
+                app:iconSize="23dp"
+                app:iconTint="#FA233A" />
+            <ImageView
+
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="24dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/next" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

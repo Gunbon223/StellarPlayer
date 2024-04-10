@@ -3,7 +3,10 @@
     <style name="Base.Theme.StellarPlayer" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:fontFamily">@font/sf_med</item>
+
     </style>
 
     <style name="Theme.StellarPlayer" parent="Base.Theme.StellarPlayer" />
+
 </resources>

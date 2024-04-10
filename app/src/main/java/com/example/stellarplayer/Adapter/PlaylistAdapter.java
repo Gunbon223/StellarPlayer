@@ -30,11 +30,9 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull PlaylistAdapter.ViewHolder holder, int position) {
         Playlists playlist = playlistList.get(position);
-        holder.tvPlaylistName.setText(playlist.getName());
+        holder.txtTitle.setText(playlist.getName());
         Songs song = playlist.getSongs().get(0);
-        holder.txtTitle.setText(song.getName());
         // Assuming that getCover() returns the resource id of the cover image
-        holder.imgCover.setImageResource(Integer.parseInt(song.getPath()));
     }
 
     @Override
@@ -44,14 +42,12 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvPlaylistName;
-        public TextView txtArtist;
         public TextView txtTitle;
         public ImageView imgCover;
 
         public ViewHolder(View view) {
             super(view);
             txtTitle = view.findViewById(R.id.txtPlaylist);
-            imgCover = view.findViewById(R.id.songImage);
         }
     }
 }

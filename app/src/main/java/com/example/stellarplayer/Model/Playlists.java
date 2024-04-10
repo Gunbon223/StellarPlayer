@@ -7,15 +7,26 @@ import android.media.MediaMetadataRetriever;
 import java.util.List;
 
 public class Playlists {
+    private int id;
     private String name;
     private List<Songs> songs;
+    private static int autId = 0;
     public Playlists(){
         // Empty constructor required for Firebase
     }
 
     public Playlists(String name, List<Songs> songs) {
+        this.id = autId++;
         this.name = name;
         this.songs = songs;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

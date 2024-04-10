@@ -2,15 +2,23 @@ package com.example.stellarplayer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ButtonBarLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.stellarplayer.Fragment.HomeFragment;
+import com.example.stellarplayer.Fragment.LibraryFragment;
+import com.example.stellarplayer.Fragment.SearchFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class LibaryActivity extends AppCompatActivity {
     Button btnAlbums,btnPlaylists,btnAllSongs,btnFav;
@@ -20,6 +28,8 @@ public class LibaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_libary);
+
+
         btnAlbums = findViewById(R.id.btnAlbums);
         btnPlaylists = findViewById(R.id.btnPlayLists);
         btnAllSongs = findViewById(R.id.btnAllSongs);
@@ -42,7 +52,7 @@ public class LibaryActivity extends AppCompatActivity {
             btnPlaylists.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(LibaryActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LibaryActivity.this, ListActivity.class);
                     startActivity(intent);
                 }
             });
@@ -56,13 +66,15 @@ public class LibaryActivity extends AppCompatActivity {
             btnFav.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(LibaryActivity.this, ListActivity.class);
+                    Intent intent = new Intent(LibaryActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
             });
             return insets;
 
 
+
         });
+
     }
 }

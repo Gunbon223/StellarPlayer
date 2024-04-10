@@ -5,16 +5,20 @@ import android.graphics.BitmapFactory;
 import android.media.MediaMetadataRetriever;
 
 public class Songs {
+    private int id;
     private String name;
     private String path;
     private String artist;
     private String album;
+
+    private static int autoId = 0;
 
     public Songs() {
         // Empty constructor required for Firebase
     }
 
     public Songs(String name, String path, String artist, String album) {
+        this.id = autoId++;
         this.name = name;
         this.path = path;
         this.artist = artist;

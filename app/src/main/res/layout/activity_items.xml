@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ItemsActivity">
+    android:layout_height="wrap_content"
+    tools:context=".ItemsActivity"
+    android:clickable="true"
+    android:focusable="true"
+    >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="81dp"
+        android:layout_weight="0.7"
         android:background="@drawable/btnborder"
-        android:clickable="true"
-        android:focusable="true"
+
         android:orientation="horizontal">
 
         <ImageView
@@ -23,20 +26,30 @@
             android:src="@drawable/fav" />
 
         <LinearLayout
-            android:layout_width="329dp"
+            android:layout_width="297dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtPlaylist"
-                android:layout_width="160dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginTop="20dp"
-                android:text="Playlist Name" />
+                android:fontFamily="sans-serif"
+                android:text="Playlist Name"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/nextBtn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+        android:src="@drawable/next" />
 
     </LinearLayout>
 </LinearLayout>
