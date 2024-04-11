@@ -21,6 +21,13 @@ public class Playlists {
         this.songs = songs;
     }
 
+    public Playlists(String name) {
+        this.id = autId++;
+        this.name = name;
+    }
+
+
+
     public int getId() {
         return id;
     }
