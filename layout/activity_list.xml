@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ListActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="Library"
+            android:textColor="#FA233A"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:icon="@drawable/back"
+            app:iconSize="10dp"
+            app:iconTint="#FA233A"
+             />
+
+        <Button
+            android:id="@+id/btnMenu"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="0dp"
+            android:background="@android:color/transparent"
+            android:text=""
+            android:textColor="#FA233A"
+            app:icon="@android:drawable/ic_menu_sort_by_size"
+            app:iconSize="21sp"
+            app:iconTint="#FA233A" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:fontFamily="serif"
+        android:paddingLeft="20dp"
+        android:text="Playlists"
+
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:typeface="normal" />
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/listItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp" />
+
+
+</LinearLayout>
