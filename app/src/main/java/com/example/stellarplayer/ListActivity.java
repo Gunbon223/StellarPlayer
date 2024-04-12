@@ -49,13 +49,43 @@ public class ListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
+        //Open playlist
+        adapter.setOnItemClickListener(new PlaylistAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                // Handle item click
+            }
+        });
+
+
+        //Delete
+        adapter.setOnItemLongClickListener(new PlaylistAdapter.OnItemLongClickListener() {
+            @Override
+            public void onItemLongClick(int position) {
+                // Create a new AlertDialog
+                new AlertDialog.Builder(ListActivity.this)
+                        .setTitle("Delete Playlist")
+                        .setMessage("Are you sure you want to delete this playlist?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Delete the item from the data list and notify the adapter
+                                playlists.remove(position);
+                                adapter.notifyItemRemoved(position);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            }
+        });
+
+
         Button btnMenu = findViewById(R.id.btnMenu);
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PopupMenu popup = new PopupMenu(ListActivity.this, btnMenu);
                 popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
-
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
@@ -102,7 +132,7 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 String playlistName = input.getText().toString();
                 // Create a new playlist with the entered name and an empty song list
-                Playlists newPlaylist = new Playlists(playlistName, new ArrayList<>());
+                Playlists newPlaylist = new Playlists(playlistName);
                 // Add the new playlist to the database
                 db.addPlaylist(newPlaylist);
                 // Add the new playlist to the existing list

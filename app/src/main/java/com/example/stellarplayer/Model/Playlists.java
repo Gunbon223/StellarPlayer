@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadataRetriever;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Playlists {
@@ -16,14 +17,18 @@ public class Playlists {
     }
 
     public Playlists(String name, List<Songs> songs) {
-        this.id = autId++;
         this.name = name;
-        this.songs = songs;
+        if (songs == null) {
+            this.songs = new ArrayList<>();
+        } else {
+            this.songs = songs;
+        }
     }
 
     public Playlists(String name) {
         this.id = autId++;
         this.name = name;
+        this.songs = new ArrayList<>();
     }
 
 
