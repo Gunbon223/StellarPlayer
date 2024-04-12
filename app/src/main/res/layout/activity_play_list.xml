@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlayList">
+    tools:context=".PLayList">
 
     <ImageButton
         android:id="@+id/gobackBtt"
@@ -20,33 +20,22 @@
 
     <Button
         android:id="@+id/playButton"
-        android:layout_width="303dp"
-        android:layout_height="63dp"
+
+        android:layout_width="233dp"
+        android:layout_height="48dp"
         android:layout_marginTop="44dp"
-        android:background="@drawable/custom_button"
+        android:theme="@style/label_play"
+        android:background="@color/colorDivider"
         android:paddingRight="5dp"
         android:text="Play"
         android:textColor="#FA233A"
-        android:textSize="28sp"
+        android:icon="@drawable/playms"
+        android:iconTint="#FA233A"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="31dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="56dp"
-        android:background="#ececec"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.423"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/play"
-        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/imageButton5"
@@ -76,8 +65,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="400dp"
-        android:layout_height="200dp"
+        android:layout_width="249dp"
+        android:layout_height="249dp"
+        android:scaleType="centerCrop"
         android:layout_marginTop="96dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
