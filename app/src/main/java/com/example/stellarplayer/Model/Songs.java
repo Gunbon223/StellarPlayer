@@ -4,54 +4,59 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadataRetriever;
 
-import java.util.List;
-
-public class Playlists {
+public class Songs {
     private int id;
     private String name;
-    private String imageUri;
-    private List<Songs> songs;
-    private static int autId = 0;
-    public Playlists(){
+    private String path;
+    private String artist;
+    private String album;
+
+    private static int autoId = 0;
+
+    public Songs() {
         // Empty constructor required for Firebase
     }
 
-    public Playlists(String name, List<Songs> songs) {
-        this.id = autId++;
+    public Songs(String name, String path, String artist, String album) {
+        this.id = autoId++;
         this.name = name;
-        this.songs = songs;
-    }
-
-    public Playlists(String name) {
-        this.id = autId++;
-        this.name = name;
-    }
-
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.path = path;
+        this.artist = artist;
+        this.album = album;
     }
 
     public String getName() {
         return name;
     }
 
+    public String getPath() {
+        return path;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public List<Songs> getSongs() {
-        return songs;
+    public void setPath(String path) {
+        this.path = path;
     }
 
-    public void setSongs(List<Songs> songs) {
-        this.songs = songs;
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
+
     public Bitmap getAlbumCover(String filePath) {
         MediaMetadataRetriever mmr = new MediaMetadataRetriever();
         mmr.setDataSource(filePath);
@@ -63,3 +68,4 @@ public class Playlists {
         }
     }
 }
+
