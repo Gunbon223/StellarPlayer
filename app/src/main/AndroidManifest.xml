@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StellarPlayer"
-        tools:targetApi="31">
+        tools:targetApi="29">
+        <activity
+            android:name=".PLayList"
+            android:exported="true"/>
         <activity
             android:name=".ItemsActivity"
             android:exported="false" />
