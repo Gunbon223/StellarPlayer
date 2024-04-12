@@ -9,8 +9,5 @@ Library
     <string name="hello_blank_fragment">
         Welcome to the blank fragment
     </string>
-<string name="title">
-        Songs
-        </string>
 
 </resources>
