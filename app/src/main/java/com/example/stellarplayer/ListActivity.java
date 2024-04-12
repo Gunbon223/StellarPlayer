@@ -20,9 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.stellarplayer.Adapter.PlaylistAdapter;
 import com.example.stellarplayer.Model.Playlists;
-import com.example.stellarplayer.Model.Songs;
+import com.example.stellarplayer.Service.DBSql;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListActivity extends AppCompatActivity {

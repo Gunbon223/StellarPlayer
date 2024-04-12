@@ -1,4 +1,4 @@
-package com.example.stellarplayer;
+package com.example.stellarplayer.Service;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
