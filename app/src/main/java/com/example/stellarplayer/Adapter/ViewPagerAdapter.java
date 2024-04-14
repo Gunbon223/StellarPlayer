@@ -1,10 +1,15 @@
-package com.example.stellarplayer.Fragment;
+package com.example.stellarplayer.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import com.example.stellarplayer.Fragment.HomeFragment;
+import com.example.stellarplayer.Fragment.LibraryFragment;
+import com.example.stellarplayer.Fragment.SearchFragment;
+
 public class ViewPagerAdapter extends FragmentStateAdapter {
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);

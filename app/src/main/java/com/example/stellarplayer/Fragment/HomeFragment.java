@@ -42,17 +42,17 @@ public class HomeFragment extends Fragment {
 
         // Create 4 Category objects and add them to the categories list
         categories = new ArrayList<>();
-        categories.add(new Category(1,"Category 1", playlists));
-        categories.add(new Category(2,"Category 2", playlists));
-        categories.add(new Category(3,"Category 3", playlists));
-        categories.add(new Category(4,"Category 4", playlists));
+        categories.add(new Category(1,"Recently Listened", playlists));
+        categories.add(new Category(2,"Your Favourite", playlists));
+        categories.add(new Category(3,"Popular ", playlists));
+        categories.add(new Category(4,"Popular Podcast", playlists));
 
         // Initialize the CategoryAdapter with the categories list
         categoryAdapter = new CategoryAdapter(categories);
-
         // Set the adapter to the RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(categoryAdapter);
+
 
         return view;
     }

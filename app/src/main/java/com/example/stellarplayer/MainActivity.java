@@ -1,17 +1,13 @@
 package com.example.stellarplayer;
 
-import static android.os.Build.VERSION_CODES.R;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import com.example.stellarplayer.Fragment.HomeFragment;
-import com.example.stellarplayer.Fragment.LibraryFragment;
-import com.example.stellarplayer.Fragment.SearchFragment;
-import com.example.stellarplayer.Fragment.ViewPagerAdapter;
+
+import com.example.stellarplayer.Adapter.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 

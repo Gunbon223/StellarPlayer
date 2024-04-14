@@ -11,10 +11,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:elevation="10dp"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="14dp">
 
         <ImageView
-            android:id="@+id/img"
+            android:id="@+id/imgMenu"
             android:layout_width="171dp"
             android:layout_height="171dp"
             android:scaleType="centerCrop"

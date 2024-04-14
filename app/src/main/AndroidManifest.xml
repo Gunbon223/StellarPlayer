@@ -13,6 +13,9 @@
         android:theme="@style/Theme.StellarPlayer"
         tools:targetApi="29">
         <activity
+            android:name=".item_cat_playlist"
+            android:exported="false" />
+        <activity
             android:name=".item_category"
             android:exported="false" />
         <activity

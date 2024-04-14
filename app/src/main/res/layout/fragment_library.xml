@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginTop="20dp"
         tools:context=".LibaryActivity">
 
         <TextView
@@ -110,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:paddingLeft="8dp"
-                android:text="Favorites"
+                android:text="Favourites"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp"

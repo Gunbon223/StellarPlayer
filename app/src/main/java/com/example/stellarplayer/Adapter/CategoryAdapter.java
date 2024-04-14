@@ -39,11 +39,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(holder.playlistsRecyclerView.getContext(), RecyclerView.HORIZONTAL, false);
         holder.playlistsRecyclerView.setLayoutManager(linearLayoutManager);
 
-        // Create a PlaylistAdapter with the list of playlists from the current category
-        PlaylistAdapter playlistAdapter = new PlaylistAdapter(category.getPlaylists());
+        // Create a MenuPlaylistAdapter with the list of playlists from the current category
+        MenuPlaylistAdapter menuPlaylistAdapter = new MenuPlaylistAdapter();
+        menuPlaylistAdapter.setData(category.getPlaylists());
 
         // Set the adapter to the RecyclerView in the category item layout
-        holder.playlistsRecyclerView.setAdapter(playlistAdapter);
+        holder.playlistsRecyclerView.setAdapter(menuPlaylistAdapter);
     }
 
     @Override
