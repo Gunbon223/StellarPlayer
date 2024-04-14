@@ -18,7 +18,7 @@
             android:layout_width="171dp"
             android:layout_height="171dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/albums"
+            android:src="@drawable/note_music"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp" />
     </androidx.cardview.widget.CardView>
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:padding="4dp"
         android:textAppearance="@style/artist"
-        android:text="music" />
+        android:text="" />
 
 </LinearLayout>
 

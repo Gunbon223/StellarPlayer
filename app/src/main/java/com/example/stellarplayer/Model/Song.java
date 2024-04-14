@@ -87,11 +87,11 @@ public class Song {
         this.path = path;
     }
 
-    public byte[] getCoverArtPath() {
+    public byte[] getCoverArt() {
         return coverArtPath;
     }
 
-    public void setCoverArtPath(byte[] coverArtPath) {
+    public void setCoverArt(byte[] coverArtPath) {
         this.coverArtPath = coverArtPath;
     }
 }

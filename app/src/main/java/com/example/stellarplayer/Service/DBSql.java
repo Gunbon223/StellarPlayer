@@ -1,8 +1,10 @@
 package com.example.stellarplayer.Service;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Base64;
 
 import androidx.annotation.Nullable;
 
@@ -32,19 +34,20 @@ public class DBSql extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY," +
                 "name TEXT)";
         db.execSQL(createCategoryTableSql);
-        String createSongTableSql = "CREATE TABLE IF NOT EXISTS Song (" +
-                "id INTEGER PRIMARY KEY," +
+        String CREATE_SONG_TABLE = "CREATE TABLE IF NOT EXISTS Song (" +
                 "title TEXT," +
                 "artist TEXT," +
+                "duration INTEGER," +
                 "album TEXT," +
-                "path TEXT)";
-        db.execSQL(createSongTableSql);
-
+                "path TEXT," +
+                "coverArt BLOB)";
+        db.execSQL(CREATE_SONG_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS Playlists");
+        db.execSQL("DROP TABLE IF EXISTS Song");
         onCreate(db);
     }
 
@@ -152,39 +155,50 @@ public class DBSql extends SQLiteOpenHelper {
         return categories;
     }
 
-    public void addSong(Song song) {
+    public void addSongs(List<Song> songs) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT INTO Song (title, artist, album, path) VALUES ('" + song.getTitle() + "', '" + song.getArtist() + "', '" + song.getAlbum() + "' , '" + song.getPath() + "')");
-        addSongToAllSongsPlaylist(song);
+
+        for (Song song : songs) {
+            ContentValues values = new ContentValues();
+            values.put("title", song.getTitle());
+            values.put("artist", song.getArtist());
+            values.put("duration", song.getDuration());
+            values.put("album", song.getAlbum());
+            values.put("path", song.getPath());
+            values.put("coverArt", song.getCoverArt());
+
+            db.insert("Song", null, values);
+        }
     }
+
 
     public void deleteSong(String title) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Song song = getSongByTitle(title); // You need to implement this method to get a Song by its id
+        Song song = getSongByTitle(title);
         if (song != null) {
-            db.execSQL("DELETE FROM Song WHERE title = " + title);
+            db.execSQL("DELETE FROM Song WHERE title = '" + title + "'");
             removeSongFromAllSongsPlaylist(song);
         }
     }
 
     public Song getSongByTitle(String title) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM Song WHERE title = " + title, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM Song WHERE title = '" + title + "'", null);
 
         if (cursor.moveToFirst()) {
             Song song = new Song();
             song.setTitle(cursor.getString(1));
             song.setArtist(cursor.getString(2));
-            song.setAlbum(cursor.getString(3));
-            song.setPath(cursor.getString(4));
+            song.setDuration(cursor.getLong(3));
+            song.setAlbum(cursor.getString(4));
+            song.setPath(cursor.getString(5));
+            byte[] coverArtPath = Base64.decode(cursor.getString(6), Base64.DEFAULT);
+            song.setCoverArt(coverArtPath);
             return song;
         }
         cursor.close();
         return null;
     }
-
-
-
 
 
     public void addSongToAllSongsPlaylist(Song song) {

@@ -89,8 +89,11 @@ public class HomeFragment extends Fragment {
                             // Handle settings click
                             showAddPlaylistDialog();
                         } else if (itemId == R.id.add_song) {
+                            // Create an intent to open the file browser
                             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-                            startActivityForResult(intent, 1); // Start the activity and expect a result
+                            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            // Start the intent and expect a result
+                            startActivityForResult(intent, 1);
                             return true;
                         } else {
                             return false;
@@ -121,17 +124,11 @@ public class HomeFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK) {
             Uri uri = data.getData(); // Get the Uri of the selected directory
-            DocumentFile pickedDir = DocumentFile.fromTreeUri(getActivity(), uri);
-
             // Use SongReader to read songs from the selected directory
             SongReader songReader = new SongReader();
-            List<Song> songs = songReader.readSongsFromDirectory(uri, getActivity(), dbSql);
-
-            // Add each song to the database and to a playlist
-            for (Song song : songs) {
-                dbSql.addSong(song);
-                showPlaylistSelectionDialog(song, playlists);
-            }
+            List<Song> songs = songReader.readSongsFromDirectory(uri, getActivity());
+            // Add each song to the database
+            dbSql.addSongs(songs);
         }
     }
     public void showPlaylistSelectionDialog(Song song, List<Playlists> playlists) {
