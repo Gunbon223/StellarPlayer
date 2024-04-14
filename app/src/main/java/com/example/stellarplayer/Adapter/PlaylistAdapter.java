@@ -33,7 +33,7 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHo
     public void onBindViewHolder(@NonNull PlaylistAdapter.ViewHolder holder, int position) {
         Playlists playlist = playlistList.get(position);
         holder.txtTitle.setText(playlist.getName());
-        Songs song = playlist.getSongs().get(0);
+//        Songs song = playlist.getSongs().get(0);
         // Assuming that getCover() returns the resource id of the cover image
     }
 

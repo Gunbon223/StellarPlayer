@@ -29,7 +29,6 @@ public class LibaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_libary);
 
-
         btnAlbums = findViewById(R.id.btnAlbums);
         btnPlaylists = findViewById(R.id.btnPlayLists);
         btnAllSongs = findViewById(R.id.btnAllSongs);
@@ -42,7 +41,6 @@ public class LibaryActivity extends AppCompatActivity {
             btnAlbums.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    System.out.println("Hello, World!");
                     Intent intent = new Intent(LibaryActivity.this, MainActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.transition.slide_in_right, R.transition.slide_in_right);

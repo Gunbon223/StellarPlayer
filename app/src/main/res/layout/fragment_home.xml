@@ -9,9 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="44dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
         >
         <TextView
             android:id="@+id/title"
@@ -25,6 +24,7 @@
             android:translationY="-0.21sp" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_viewCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />

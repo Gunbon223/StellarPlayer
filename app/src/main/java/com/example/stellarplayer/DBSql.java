@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.stellarplayer.Model.Category;
 import com.example.stellarplayer.Model.Playlists;
 
 import java.util.ArrayList;
@@ -25,6 +26,11 @@ public class DBSql extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY," +
                 "name TEXT)";
         db.execSQL(createTableSql);
+        // Create Category table
+        String createCategoryTableSql = "CREATE TABLE IF NOT EXISTS Category (" +
+                "id INTEGER PRIMARY KEY," +
+                "name TEXT)";
+        db.execSQL(createCategoryTableSql);
     }
 
     @Override
@@ -105,5 +111,35 @@ public class DBSql extends SQLiteOpenHelper {
     }
 
 
+    public void addCategory(Category category) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT INTO Category (name) VALUES ('" + category.getNameCategory() + "')");
+    }
 
+    public void updateCategory(Category category) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Category SET name = '" + category.getNameCategory() + "' WHERE id = " + category.getId());
+    }
+
+    public void deleteCategory(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM Category WHERE id = " + id);
+    }
+
+    public List<Category> getAllCategories() {
+        List<Category> categories = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Category", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Category category = new Category();
+                category.setId(cursor.getInt(0));
+                category.setNameCategory(cursor.getString(1));
+                categories.add(category);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return categories;
+    }
 }
