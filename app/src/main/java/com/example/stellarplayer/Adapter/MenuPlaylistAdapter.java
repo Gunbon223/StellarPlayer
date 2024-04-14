@@ -9,10 +9,9 @@ import android.view.LayoutInflater;
         import androidx.annotation.NonNull;
         import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.stellarplayer.DBSql;
 import com.example.stellarplayer.Model.Playlists;
-import com.example.stellarplayer.Model.Song;
 import com.example.stellarplayer.R;
+import com.example.stellarplayer.Service.DBSql;
 
 import java.util.List;
 

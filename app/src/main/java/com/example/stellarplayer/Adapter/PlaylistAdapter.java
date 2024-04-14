@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.stellarplayer.Model.Playlists;
-import com.example.stellarplayer.Model.Songs;
 import com.example.stellarplayer.R;
 
 import java.util.List;

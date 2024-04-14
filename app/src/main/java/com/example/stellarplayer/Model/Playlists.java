@@ -10,13 +10,13 @@ public class Playlists {
     private int id;
     private String name;
     private String imageUri;
-    private List<Songs> songs;
+    private List<Song> songs;
     private static int autId = 0;
     public Playlists(){
         // Empty constructor required for Firebase
     }
 
-    public Playlists(String name, List<Songs> songs) {
+    public Playlists(String name, List<Song> songs) {
         this.id = autId++;
         this.name = name;
         this.songs = songs;
@@ -45,11 +45,11 @@ public class Playlists {
         this.name = name;
     }
 
-    public List<Songs> getSongs() {
+    public List<Song> getSongs() {
         return songs;
     }
 
-    public void setSongs(List<Songs> songs) {
+    public void setSongs(List<Song> songs) {
         this.songs = songs;
     }
     public Bitmap getAlbumCover(String filePath) {

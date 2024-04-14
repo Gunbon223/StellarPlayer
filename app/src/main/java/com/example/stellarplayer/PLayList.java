@@ -1,17 +1,14 @@
 package com.example.stellarplayer;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.stellarplayer.Adapter.PlaylistAdapter;
 import com.example.stellarplayer.Adapter.SongAdapter;
-import com.example.stellarplayer.Model.Playlists;
-import com.example.stellarplayer.Model.Songs;
+import com.example.stellarplayer.Model.Song;
+import com.example.stellarplayer.Service.DBSql;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +26,10 @@ public class PLayList extends AppCompatActivity {
         musicPic.findViewById(R.id.imageView);
         db = new DBSql(this);
 
-        List<Songs> songsList = new ArrayList<Songs>();
-        songsList.add(new Songs("Ten bai hat", null, "ten tac gia", "nhac lozzz"));
+        List<Song> songsList = new ArrayList<Song>();
+        songsList.add(new Song("Ten bai hat","Hoang",2023213 , "ten tac gia", "ten path", null));
         // Initialize the PlaylistAdapter
         playList.setAdapter(new SongAdapter(getApplicationContext(),songsList));
+
     }
 }
