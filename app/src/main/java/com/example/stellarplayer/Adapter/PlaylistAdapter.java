@@ -17,9 +17,15 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHo
     private List<Playlists> playlistList;
     private ImageView imageView;
     private TextView songName;
+    private OnPlaylistClickListener onPlaylistClickListener;
+
 
     public PlaylistAdapter(List<Playlists> playlistList) {
         this.playlistList = playlistList;
+    }
+    public PlaylistAdapter(List<Playlists> playlistsList, OnPlaylistClickListener onPlaylistClickListener) {
+        this.playlistList = playlistsList;
+        this.onPlaylistClickListener = onPlaylistClickListener;
     }
 
     @Override
@@ -34,6 +40,11 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHo
         holder.txtTitle.setText(playlist.getName());
 //        Songs song = playlist.getSongs().get(0);
         // Assuming that getCover() returns the resource id of the cover image
+        holder.itemView.setOnClickListener(v -> {
+            if (onPlaylistClickListener != null) {
+                onPlaylistClickListener.onPlaylistClick(playlist);
+            }
+        });
     }
 
     @Override
@@ -51,4 +62,17 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHo
             txtTitle = view.findViewById(R.id.txtPlaylist);
         }
     }
+
+    public interface OnPlaylistClickListener {
+        void onPlaylistClick(Playlists playlist);
+    }
+    public static class PlaylistViewHolder extends RecyclerView.ViewHolder {
+        // ... views ...
+
+        public PlaylistViewHolder(@NonNull View itemView) {
+            super(itemView);
+            // ... find views ...
+        }
+    }
+
 }

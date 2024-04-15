@@ -15,5 +15,6 @@ Library
     <string name="title_menu">
         Listen Now
         </string>
+    <string name="title_activity_song_player">SongPlayerActivity</string>
 
 </resources>

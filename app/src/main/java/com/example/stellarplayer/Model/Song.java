@@ -1,5 +1,6 @@
 package com.example.stellarplayer.Model;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class Song {
@@ -11,20 +12,32 @@ public class Song {
     private long duration;
     private String path;
 
-    private byte[] coverArtPath; // Change this from byte[] to String
+//    private byte[] coverArtPath; // Change this from byte[] to String
 
     public Song() {
         // Empty constructor required for Firebase
     }
 
-    public Song( String title, String artist,long duration, String album, String path, byte[] coverArtPath) {
+    @Override
+    public String toString() {
+        return "Song{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", artist='" + artist + '\'' +
+                ", album='" + album + '\'' +
+                ", duration=" + duration +
+                ", path='" + path + '\''
+              ;
+    }
+
+    public Song(String title, String artist, long duration, String album, String path) {
         this.id = Integer.parseInt(String.valueOf(System.currentTimeMillis()).substring(4));
         this.title = title;
         this.artist = artist;
         this.duration = duration;
         this.album = album;
         this.path = path;
-        this.coverArtPath = coverArtPath;
+//        this.coverArtPath = coverArtPath;
     }
 
     public Song(int id, String title,long duration, String artist, String path, byte[] coverArtPath) {
@@ -33,7 +46,7 @@ public class Song {
         this.duration = duration;
         this.artist = artist;
         this.path = path;
-        this.coverArtPath = coverArtPath;
+//        this.coverArtPath = coverArtPath;
     }
 
     // Getters and setters for each field
@@ -87,11 +100,11 @@ public class Song {
         this.path = path;
     }
 
-    public byte[] getCoverArt() {
-        return coverArtPath;
-    }
-
-    public void setCoverArt(byte[] coverArtPath) {
-        this.coverArtPath = coverArtPath;
-    }
+//    public byte[] getCoverArt() {
+//        return coverArtPath;
+//    }
+//
+//    public void setCoverArt(byte[] coverArtPath) {
+//        this.coverArtPath = coverArtPath;
+//    }
 }

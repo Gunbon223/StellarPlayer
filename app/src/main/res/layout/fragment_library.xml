@@ -152,6 +152,7 @@
                 app:iconPadding="8dp"
                 app:iconSize="23dp"
                 app:iconTint="#FA233A" />
+
             <ImageView
 
                 android:id="@+id/imageView4"

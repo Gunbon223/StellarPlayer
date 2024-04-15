@@ -24,24 +24,24 @@ public class SongReader {
                 MediaMetadataRetriever metadataRetriever = new MediaMetadataRetriever();
                 metadataRetriever.setDataSource(context, file.getUri());
 
-                String title = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
+                                String title = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
                 String artist = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
                 String album = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM);
                 int duration = Integer.parseInt(metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION));
-                byte[] coverArt = metadataRetriever.getEmbeddedPicture();
+//                byte[] coverArt = metadataRetriever.getEmbeddedPicture();
+//
+//                if (coverArt == null) {
+//                    Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.note_music);
+//                    if (bitmap != null) {
+//                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//                        coverArt = stream.toByteArray();
+//                    } else {
+//                        coverArt = new byte[0]; // Set a default byte array
+//                    }
+//                }
 
-                if (coverArt == null) {
-                    Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.note_music);
-                    if (bitmap != null) {
-                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                        coverArt = stream.toByteArray();
-                    } else {
-                        coverArt = new byte[0]; // Set a default byte array
-                    }
-                }
-
-                songs.add(new Song(title, artist, duration, album, file.getUri().toString(), coverArt));
+                songs.add(new Song(title, artist, duration, album, file.getUri().toString()));
             }
         }
 

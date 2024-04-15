@@ -57,7 +57,7 @@ public class LibaryActivity extends AppCompatActivity {
             btnAllSongs.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(LibaryActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LibaryActivity.this, SongPlayer.class);
                     startActivity(intent);
                 }
             });

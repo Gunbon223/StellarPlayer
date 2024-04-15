@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.example.stellarplayer.ListActivity;
 import com.example.stellarplayer.MainActivity;
 import com.example.stellarplayer.R;
+import com.example.stellarplayer.SongPlayer;
 
 public class LibraryFragment extends Fragment {
     Button btnAlbums,btnPlaylists,btnAllSongs,btnFav;
@@ -46,7 +47,7 @@ public class LibraryFragment extends Fragment {
                 startActivity(intent);
             });
             btnAllSongs.setOnClickListener(v13 -> {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), SongPlayer.class);
                 startActivity(intent);
             });
             btnFav.setOnClickListener(v14 -> {

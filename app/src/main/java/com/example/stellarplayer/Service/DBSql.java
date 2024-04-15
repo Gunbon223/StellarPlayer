@@ -39,8 +39,7 @@ public class DBSql extends SQLiteOpenHelper {
                 "artist TEXT," +
                 "duration INTEGER," +
                 "album TEXT," +
-                "path TEXT," +
-                "coverArt BLOB)";
+                "path TEXT)";
         db.execSQL(CREATE_SONG_TABLE);
     }
 
@@ -160,12 +159,13 @@ public class DBSql extends SQLiteOpenHelper {
 
         for (Song song : songs) {
             ContentValues values = new ContentValues();
+            addSongToAllSongsPlaylist(song);
             values.put("title", song.getTitle());
             values.put("artist", song.getArtist());
             values.put("duration", song.getDuration());
             values.put("album", song.getAlbum());
             values.put("path", song.getPath());
-            values.put("coverArt", song.getCoverArt());
+//            values.put("coverArt", song.getCoverArt());
 
             db.insert("Song", null, values);
         }
@@ -193,8 +193,23 @@ public class DBSql extends SQLiteOpenHelper {
             song.setAlbum(cursor.getString(4));
             song.setPath(cursor.getString(5));
             byte[] coverArtPath = Base64.decode(cursor.getString(6), Base64.DEFAULT);
-            song.setCoverArt(coverArtPath);
+//            song.setCoverArt(coverArtPath);
             return song;
+        }
+        cursor.close();
+        return null;
+    }
+
+    //get playlist Allsong
+    public Playlists getPlaylistAllSong() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Playlists WHERE name = 'Allsong'", null);
+
+        if (cursor.moveToFirst()) {
+            Playlists playlist = new Playlists();
+            playlist.setId(cursor.getInt(0));
+            playlist.setName(cursor.getString(1));
+            return playlist;
         }
         cursor.close();
         return null;

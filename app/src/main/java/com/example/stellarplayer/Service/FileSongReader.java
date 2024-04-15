@@ -33,18 +33,18 @@ public class FileSongReader {
                 String artist = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
                 String album = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM);
                 long duration = Long.parseLong(metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION));
-                byte[] coverArt = metadataRetriever.getEmbeddedPicture();
-                if (coverArt == null) {
-                    Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.note_music);
-                    if (bitmap != null) {
-                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                        coverArt = stream.toByteArray();
-                    } else {
-                        coverArt = new byte[0]; // Set a default byte array
-                    }
-                }
-                songs.add(new Song(title, artist, duration, album, file.getUri().toString(), coverArt));
+//                byte[] coverArt = metadataRetriever.getEmbeddedPicture();
+//                if (coverArt == null) {
+//                    Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.note_music);
+//                    if (bitmap != null) {
+//                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//                        coverArt = stream.toByteArray();
+//                    } else {
+//                        coverArt = new byte[0]; // Set a default byte array
+//                    }
+//                }
+                songs.add(new Song(title, artist, duration, album, file.getUri().toString()));
             }
         }
 

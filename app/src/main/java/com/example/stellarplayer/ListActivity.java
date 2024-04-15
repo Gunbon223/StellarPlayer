@@ -1,6 +1,8 @@
 package com.example.stellarplayer;
 
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MenuItem;
@@ -42,7 +44,16 @@ public class ListActivity extends AppCompatActivity {
         // Create a list of Playlists objects
         playlists = db.getAllPlaylists();
         // Initialize the PlaylistAdapter
-        adapter = new PlaylistAdapter(playlists);
+        adapter = new PlaylistAdapter(playlists, new PlaylistAdapter.OnPlaylistClickListener() {
+            @Override
+            public void onPlaylistClick(Playlists playlist) {
+                // Here, you can start a new activity or fragment to display the playlist
+                Intent intent = new Intent(ListActivity.this, PLayList.class);
+                // Pass the playlist to the new activity or fragment
+                intent.putExtra("playlist", playlist);
+                startActivity(intent);
+            }
+        });
 
 
         // Set the adapter to the RecyclerView
