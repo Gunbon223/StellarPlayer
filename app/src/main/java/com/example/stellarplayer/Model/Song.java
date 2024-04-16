@@ -1,9 +1,10 @@
 package com.example.stellarplayer.Model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
-public class Song {
+public class Song implements Serializable {
 
     private int id;
     private String title;

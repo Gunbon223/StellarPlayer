@@ -1,4 +1,3 @@
-/*
 package com.example.stellarplayer.Adapter;
 
 import android.content.Context;
@@ -16,9 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.stellarplayer.Model.Song;
-import com.example.stellarplayer.MusicPlayerActivity;
 import com.example.stellarplayer.MyMediaPlayer;
 import com.example.stellarplayer.R;
+import com.example.stellarplayer.SongPlayer;
 
 public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.ViewHolder>{
 
@@ -32,14 +31,14 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
 
     @Override
     public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_song_player,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_item_cat_playlist,parent,false);
         return new MusicListAdapter.ViewHolder(view);
     }
-
     @Override
-    public void onBindViewHolder( MusicListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(MusicListAdapter.ViewHolder holder, int position) {
         Song songData = songsList.get(position);
         holder.titleTextView.setText(songData.getTitle());
+        holder.ArtTextView.setText(songData.getArtist());
 
         if(MyMediaPlayer.currentIndex==position){
             holder.titleTextView.setTextColor(Color.parseColor("#FF0000"));
@@ -50,18 +49,22 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //navigate to another acitivty
+                // Get the current position
+                int currentPosition = holder.getAdapterPosition();
+                if (currentPosition == RecyclerView.NO_POSITION) {
+                    // This can happen if the item is clicked just as it is being removed from the adapter.
+                    return;
+                }
 
+                // Navigate to SongPlayer activity
                 MyMediaPlayer.getInstance().reset();
-                MyMediaPlayer.currentIndex = position;
-                Intent intent = new Intent(context, MusicPlayerActivity.class);
-                intent.putExtra("LIST",songsList);
+                MyMediaPlayer.currentIndex = currentPosition;
+                Intent intent = new Intent(context, SongPlayer.class);
+                intent.putExtra("SONG", songsList.get(currentPosition)); // Use the current position
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
-
             }
         });
-
     }
 
     @Override
@@ -72,12 +75,14 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView titleTextView;
+        TextView ArtTextView;
+
         ImageView iconImageView;
         public ViewHolder(View itemView) {
             super(itemView);
-            titleTextView = itemView.findViewById(R.id.music_title_text);
-            iconImageView = itemView.findViewById(R.id.icon_view);
+            titleTextView = itemView.findViewById(R.id.songTitle);
+            ArtTextView = itemView.findViewById(R.id.songArtist);
+            iconImageView = itemView.findViewById(R.id.songImage);
         }
     }
 }
-*/

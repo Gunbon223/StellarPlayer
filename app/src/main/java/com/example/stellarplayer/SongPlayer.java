@@ -2,6 +2,7 @@ package com.example.stellarplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -31,11 +32,14 @@ public class SongPlayer extends AppCompatActivity {
         ImageButton playPauseButton = findViewById(R.id.playPauseButton);
         TextView songTitle = findViewById(R.id.SongTitle);
 
-        // Check if the songs list is not null before trying to access it
-        if (playlists.getSongs() != null && !playlists.getSongs().isEmpty()) {
-            // Get the song from the database
-            currentSong = playlists.getSongs().get(0);
-            System.out.println(currentSong.toString());
+        // Get the current intent
+        Intent intent = getIntent();
+
+        // Get the song from the intent
+        Song currentSong = (Song) intent.getSerializableExtra("SONG");
+
+        // Check if the song is not null before trying to use it
+        if (currentSong != null) {
             songTitle.setText(currentSong.getTitle());
 
             mediaPlayer = new MediaPlayer();
@@ -60,7 +64,7 @@ public class SongPlayer extends AppCompatActivity {
                 }
             });
         } else {
-            System.out.println("The songs list is null or empty");
+            System.out.println("The song is null");
         }
     }
 

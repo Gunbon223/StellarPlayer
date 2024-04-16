@@ -26,7 +26,7 @@ public class SongAdapter extends RecyclerView.Adapter<MusicHolder> {
     @NonNull
     @Override
     public MusicHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MusicHolder(LayoutInflater.from(context).inflate(R.layout.activity_items, parent, false));
+        return new MusicHolder(LayoutInflater.from(context).inflate(R.layout.activity_item_cat_playlist, parent, false));
     }
 
     @Override
