@@ -28,7 +28,7 @@
             <TextView
                 android:id="@+id/txtPlaylist"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="sans-serif"
                 android:text="Playlist Name"
