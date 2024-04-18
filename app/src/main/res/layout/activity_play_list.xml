@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PLayList">
+
+    <ImageButton
+        android:id="@+id/gobackBtt"
+        android:layout_width="55dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        android:contextClickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/back" />
+
+   <!-- <Button
+        android:id="@+id/playButton"
+        android:layout_width="110dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="44dp"
+        android:drawableLeft="@drawable/playms"
+        android:paddingRight="5dp"
+        android:text="Play"
+        android:textColor="#FA233A"
+        android:textSize="17sp"
+        android:theme="@style/TextAppearance.AppCompat.Body2"
+        app:backgroundTint="#EDEDEE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+-->
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/custom_button"
+        android:contextClickable="true"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/group" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/custom_button"
+        android:contextClickable="true"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ellipsis" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="249dp"
+        android:layout_height="249dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/note_music" />
+
+    <TextView
+        android:id="@+id/no_songs_text"
+        android:layout_width="246dp"
+        android:layout_height="92dp"
+        android:layout_centerInParent="true"
+        android:text="NO SONGS FOUND"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/musicList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/musicList"
+        app:layout_constraintTop_toTopOf="@+id/musicList" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/musicList"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
