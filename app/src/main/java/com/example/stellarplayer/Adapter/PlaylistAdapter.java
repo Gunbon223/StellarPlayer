@@ -45,6 +45,10 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHo
                 onPlaylistClickListener.onPlaylistClick(playlist);
             }
         });
+        holder.itemView.setOnLongClickListener(v -> {
+            // Show a context menu
+            return true;
+        });
     }
 
     @Override

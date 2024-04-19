@@ -2,6 +2,9 @@ package com.example.stellarplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,7 +23,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     TextView titleTv,currentTimeTv,totalTimeTv;
     SeekBar seekBar;
-    ImageView pausePlay,nextBtn,previousBtn,musicIcon;
+    ImageView pausePlay,nextBtn,previousBtn,musicCover;
     ArrayList<Song> songsList;
     Song currentSong;
     MediaPlayer mediaPlayer = MyMediaPlayer.getInstance();
@@ -38,13 +41,17 @@ public class MusicPlayerActivity extends AppCompatActivity {
         pausePlay = findViewById(R.id.pause_play);
         nextBtn = findViewById(R.id.next);
         previousBtn = findViewById(R.id.previous);
-        musicIcon = findViewById(R.id.music_icon_big);
-        musicIcon.setImageResource(R.drawable.fav);
+        musicCover = findViewById(R.id.music_icon_big);
+
         titleTv.setSelected(true);
 
         songsList = (ArrayList<Song>) getIntent().getSerializableExtra("LIST");
 
-        setResourcesWithMusic();
+        try {
+            setResourcesWithMusic();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         MusicPlayerActivity.this.runOnUiThread(new Runnable() {
             @Override
@@ -55,10 +62,10 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
                     if(mediaPlayer.isPlaying()){
                         pausePlay.setImageResource(R.drawable.pause);
-                        musicIcon.setRotation(x++);
+                        musicCover.setRotation(0);
                     }else{
                         pausePlay.setImageResource(R.drawable.pausesong);
-                        musicIcon.setRotation(0);
+                        musicCover.setRotation(0);
                     }
 
                 }
@@ -88,16 +95,42 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     }
 
-    void setResourcesWithMusic(){
+    private void setResourcesWithMusic() throws IOException {
         currentSong = songsList.get(MyMediaPlayer.currentIndex);
 
         titleTv.setText(currentSong.getTitle());
 
         totalTimeTv.setText(convertToMMSS(currentSong.getDuration()));
 
+        // Get album cover art
+        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+        retriever.setDataSource(currentSong.getPath());
+        byte[] coverArt = retriever.getEmbeddedPicture();
+
+        if (coverArt != null) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(coverArt, 0, coverArt.length);
+            musicCover.setImageBitmap(bitmap);
+        } else {
+            musicCover.setImageResource(R.drawable.note_music); // Đặt ảnh mặc định nếu không có ảnh bìa album
+        }
+
+        retriever.release();
+
         pausePlay.setOnClickListener(v-> pausePlay());
-        nextBtn.setOnClickListener(v-> playNextSong());
-        previousBtn.setOnClickListener(v-> playPreviousSong());
+        nextBtn.setOnClickListener(v-> {
+            try {
+                playNextSong();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        previousBtn.setOnClickListener(v-> {
+            try {
+                playPreviousSong();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
         playMusic();
     }
@@ -119,7 +152,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     }
 
-    private void playNextSong(){
+    private void playNextSong() throws IOException {
         if(MyMediaPlayer.currentIndex == songsList.size()-1)
             MyMediaPlayer.currentIndex = 0; // Reset to the first song if the last song is reached
         else
@@ -129,7 +162,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         setResourcesWithMusic();
     }
 
-    private void playPreviousSong(){
+    private void playPreviousSong() throws IOException {
         if(MyMediaPlayer.currentIndex== 0)
             return;
         MyMediaPlayer.currentIndex -=1;
@@ -151,4 +184,6 @@ public class MusicPlayerActivity extends AppCompatActivity {
                 TimeUnit.MILLISECONDS.toMinutes(millis) % TimeUnit.HOURS.toMinutes(1),
                 TimeUnit.MILLISECONDS.toSeconds(millis) % TimeUnit.MINUTES.toSeconds(1));
     }
+
+
 }
