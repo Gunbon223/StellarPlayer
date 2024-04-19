@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,7 +61,27 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
 
             }
         });
-
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // Create a new PopupMenu instance
+                PopupMenu popup = new PopupMenu(context, v);
+                // Inflate the menu resource file
+                popup.getMenuInflater().inflate(R.menu.song_popup, popup.getMenu());
+                // Set a click listener on the delete item
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        // Remove the item from the songsList and notify the adapter
+                        songsList.remove(position);
+                        notifyItemRemoved(position);
+                        return true;
+                    }
+                });
+                // Show the popup menu
+                popup.show();
+                return true;
+            }
+        });
     }
 
     @Override
