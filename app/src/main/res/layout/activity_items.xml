@@ -8,32 +8,27 @@
     tools:context=".ItemsActivity"
     android:clickable="true"
     android:focusable="true"
+
     >
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="81dp"
-        android:layout_weight="0.7"
-        android:background="@drawable/btnborder"
-
-        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/songImage"
             android:layout_width="57dp"
             android:layout_height="57dp"
             android:layout_margin="12dp"
-            android:src="@drawable/fav" />
+
+            android:src="@drawable/note_music" />
 
         <LinearLayout
             android:layout_width="297dp"
             android:layout_height="match_parent"
+            android:background="@drawable/btnborder"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtPlaylist"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="sans-serif"
                 android:text="Playlist Name"
@@ -49,7 +44,7 @@
             android:layout_height="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
-        android:src="@drawable/next" />
+         android:src="@drawable/next" />
 
-    </LinearLayout>
+
 </LinearLayout>

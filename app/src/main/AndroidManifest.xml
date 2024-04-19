@@ -2,25 +2,45 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_icon_round"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StellarPlayer"
-        tools:targetApi="31">
+        tools:targetApi="29">
+        <activity
+            android:name=".SongPlayer"
+            android:exported="true"
+            />
+        <activity android:name=".MusicPlayerActivity"
+            android:exported="true"
+
+            />
+        <activity
+            android:name=".item_cat_playlist"
+            android:exported="false" />
+        <activity
+            android:name=".item_category"
+            android:exported="false" />
+        <activity
+            android:name=".PLayList"
+            android:exported="true" />
+        <activity
+            android:name=".ItemMenu"
+            android:exported="false" />
         <activity
             android:name=".ItemsActivity"
             android:exported="false" />
         <activity
             android:name=".ListActivity"
             android:exported="false" />
-        <activity
-            android:name=".LibaryActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

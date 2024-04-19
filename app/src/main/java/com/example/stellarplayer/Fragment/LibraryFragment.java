@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -16,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.stellarplayer.ListActivity;
 import com.example.stellarplayer.MainActivity;
+import com.example.stellarplayer.PLayList;
 import com.example.stellarplayer.R;
 
 public class LibraryFragment extends Fragment {
@@ -46,11 +46,11 @@ public class LibraryFragment extends Fragment {
                 startActivity(intent);
             });
             btnAllSongs.setOnClickListener(v13 -> {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), PLayList.class);
                 startActivity(intent);
             });
             btnFav.setOnClickListener(v14 -> {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), ListActivity.class);
                 startActivity(intent);
             });
             return insets;

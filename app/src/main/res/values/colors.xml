@@ -10,6 +10,6 @@
 <color name="colorText">#000000</color>
 <color name="colorTextSecondary">#757575</color>
 <color name="colorDivider">#BDBDBD</color>
-
+<color name="colorBtn">#7d7d89</color>
 
 </resources>
