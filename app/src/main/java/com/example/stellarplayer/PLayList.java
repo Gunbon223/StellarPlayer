@@ -35,7 +35,7 @@ public class PLayList extends AppCompatActivity {
     private ImageButton btnImg,btnImg2,backBtn;
     private DBSql db;
     private TextView noMusicTextView;
-    ArrayList<Song> songsList = new ArrayList<>();
+    public ArrayList<Song> songsList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,8 @@ public class PLayList extends AppCompatActivity {
         //Playlists playlist = (Playlists) getIntent().getSerializableExtra("playlist");
         // Now you can use the playlist
 
-        musicPic = findViewById(R.id.imageView);
+        musicPic = findViewById(R.id.PlaylistImg);
+        musicPic.setImageResource(R.drawable.note_music);
 //        playAll = findViewById(R.id.playButton);
         btnImg = findViewById(R.id.imageButton6);
         btnImg2 = findViewById(R.id.imageButton5);
@@ -75,6 +76,9 @@ public class PLayList extends AppCompatActivity {
                 try {
                     Song songData = new Song(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3));                    if(new File(songData.getPath()).exists() && songData.getPath().endsWith(".mp3")) // chỉ xử lý các tệp có đuôi .mp3
                         songsList.add(songData);
+                    System.out.println(songsList.size());
+
+                    count++;
                 } catch (Exception e) {
                     // Log hoặc xử lý ngoại lệ tại đây nếu cần
                     e.printStackTrace();
@@ -83,7 +87,7 @@ public class PLayList extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(count);
+        System.out.println("count");
             //recyclerview
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(new MusicListAdapter(songsList,getApplicationContext()));

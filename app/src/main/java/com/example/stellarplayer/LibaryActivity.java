@@ -16,7 +16,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.stellarplayer.Fragment.HomeFragment;
 import com.example.stellarplayer.Fragment.LibraryFragment;
-import com.example.stellarplayer.Fragment.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 

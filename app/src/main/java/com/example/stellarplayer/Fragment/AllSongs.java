@@ -39,7 +39,8 @@ public class AllSongs extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_play_list, container, false);
 
-        musicPic = view.findViewById(R.id.imageView);
+        musicPic = view.findViewById(R.id.PlaylistImg);
+        musicPic.setImageResource(R.drawable.note_music);
         btnImg = view.findViewById(R.id.imageButton6);
         btnImg2 = view.findViewById(R.id.imageButton5);
         backBtn = view.findViewById(R.id.gobackBtt);

@@ -39,7 +39,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         nextBtn = findViewById(R.id.next);
         previousBtn = findViewById(R.id.previous);
         musicIcon = findViewById(R.id.music_icon_big);
-
+        musicIcon.setImageResource(R.drawable.fav);
         titleTv.setSelected(true);
 
         songsList = (ArrayList<Song>) getIntent().getSerializableExtra("LIST");
@@ -120,13 +120,13 @@ public class MusicPlayerActivity extends AppCompatActivity {
     }
 
     private void playNextSong(){
+        if(MyMediaPlayer.currentIndex == songsList.size()-1)
+            MyMediaPlayer.currentIndex = 0; // Reset to the first song if the last song is reached
+        else
+            MyMediaPlayer.currentIndex +=1;
 
-        if(MyMediaPlayer.currentIndex== songsList.size()-1)
-            return;
-        MyMediaPlayer.currentIndex +=1;
         mediaPlayer.reset();
         setResourcesWithMusic();
-
     }
 
     private void playPreviousSong(){
