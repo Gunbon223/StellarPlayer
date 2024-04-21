@@ -12,6 +12,6 @@
         android:title="Library" />
     <item
         android:id="@+id/search"
-        android:title="Search"
+        android:title="All songs"
         android:icon="@drawable/search"/>
 </menu>
